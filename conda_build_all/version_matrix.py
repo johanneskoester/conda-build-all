@@ -238,7 +238,7 @@ def special_case_version_matrix(meta, index):
             r_spec = requirement_specs.pop('r-base')
             for case_base in list(cases or [()]):
                 for r_pkg in get_pkgs(r_spec):
-                    r_vn = index[r_pkg.fn]['version']
+                    r_vn = minor_vn(index[r_pkg.fn]['version'])
                     case = case_base + (('r-base', r_vn), )
                     add_case_if_soluble(case)
                 if case_base in cases:
